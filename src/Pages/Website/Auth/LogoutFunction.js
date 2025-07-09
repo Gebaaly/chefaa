@@ -1,5 +1,4 @@
-import axios from "axios";
-import { baseURL, LOGOUT } from "../../../API/Api";
+import { LOGOUT } from "../../../API/Api";
 import Cookie from "cookie-universal";
 import { Axios } from "../../../API/Axios";
 const cookies = Cookie();

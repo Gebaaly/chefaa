@@ -49,6 +49,14 @@ export default function Products() {
       name: "Category",
     },
     {
+      key: "created_at",
+      name: "Created At",
+    },
+    {
+      key: "updated_at",
+      name: "Updated At",
+    },
+    {
       key: "images",
       name: "Images",
     },
@@ -65,6 +73,7 @@ export default function Products() {
         delete={handleDelete}
         loading={loading}
         search="title"
+        searchedType={pro}
       />
       <PaginatedItems
         currentPage={page}

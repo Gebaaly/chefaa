@@ -49,12 +49,15 @@ export default function Login() {
     try {
       const res = await axios.post(`${baseURL}/${LOGIN}`, form);
       const token = res.data.token;
+      
       cookie.set("chefaa", token);
 
       if (res.status === 200 && res.data.user.role === "1995") {
         window.location.replace("/dashboard/users");
       } else if (res.status === 200 && res.data.user.role === "1991") {
         window.location.replace("/dashboard/writer");
+      } else if (res.status === 200 && (res.data.user.role === "2001" || !res.data.user.role)) {
+        window.location.replace("/");
       } else if (res.status === 200) {
         window.location.replace("/403");
       }

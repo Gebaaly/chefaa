@@ -11,6 +11,8 @@ export default function Categories() {
   const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(1);
   const [totalItems, setTotalItems] = useState(0);
+  const [search, setSearch] = useState("");
+
   async function handleDelete(id) {
     try {
       await Axios.delete(`${cat}/${id}`);
@@ -45,6 +47,8 @@ export default function Categories() {
       key: "image",
       name: "Image",
     },
+    { key: "created_at", name: "Created" },
+    { key: "updated_at", name: "Updated" },
   ];
 
   return (
@@ -57,6 +61,7 @@ export default function Categories() {
         delete={handleDelete}
         loading={loading}
         search="title"
+        searchedType={cat}
       />
       <PaginatedItems
         currentPage={page}

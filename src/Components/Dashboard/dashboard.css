@@ -9,7 +9,7 @@
 .sidebar {
   color: white;
   height: 100vh;
-
+  scrollbar-width: none;
 }
 
 .sidebar-title {
@@ -24,7 +24,6 @@
   text-decoration: none;
   display: flex;
   align-items: center;
-  
 }
 
 .nav-item:hover {
@@ -54,6 +53,7 @@
   font-size: 1.5rem;
   cursor: pointer;
 }
+
 .nav .navbar-nav .nav-link {
   color: #343a40;
   font-weight: bold;
@@ -94,29 +94,53 @@
 .main-compact {
   margin-left: 70px;
 }
-.sidebar {
-  scrollbar-width: none;
+
+/* Table Styles */
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 8px;
+  background-color: #ffffff;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-
-
 .table thead {
-  background-color: #8ecae6;
+  background-color: #219ebc;
   color: #fff;
-  font-weight: bold;
+  font-weight: 600;
   text-transform: uppercase;
+  border-radius: 8px 8px 0 0;
+}
+
+.table thead th {
+  padding: 14px 10px;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+.table tbody tr {
+  background-color: #f8f9fa;
+  transition: background-color 0.3s ease;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
 }
 
 .table tbody tr:hover {
-  background-color: #f1f9ff;
-  transition: 0.2s;
+  background-color: #e0f7fa;
 }
-.table tr td {
-  height: 75px;
-}
-.table td, .table th {
-  vertical-align: middle !important;
+
+.table td,
+.table th {
   text-align: center;
+  vertical-align: middle !important;
+  padding: 12px 8px;
+}
+
+.table tbody td {
+  border-top: 1px solid #dee2e6;
+  font-size: 0.92rem;
+  color: #343a40;
 }
 
 img.table-img {
@@ -125,4 +149,30 @@ img.table-img {
   object-fit: cover;
   border-radius: 6px;
   border: 1px solid #ccc;
+}
+
+.table .btn {
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  border-radius: 6px;
+}
+
+.table .btn-danger {
+  background-color: #e63946;
+  border-color: #e63946;
+}
+
+.table .btn-danger:hover {
+  background-color: #d62828;
+  border-color: #d62828;
+}
+
+.table .btn-primary {
+  background-color: #0077b6;
+  border-color: #0077b6;
+}
+
+.table .btn-primary:hover {
+  background-color: #023e8a;
+  border-color: #023e8a;
 }

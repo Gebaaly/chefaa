@@ -62,6 +62,14 @@ export default function Users() {
       name: "Email",
     },
     {
+      key: "created_at",
+      name: "Created At",
+    },
+    {
+      key: "updated_at",
+      name: "Updated At",
+    },
+    {
       key: "role",
       name: "Role",
     },
@@ -79,6 +87,7 @@ export default function Users() {
         currentUser={currentUser}
         loading={loading}
         search="name"
+        searchedType={USER}
       />
       <PaginatedItems
         currentPage={page}
