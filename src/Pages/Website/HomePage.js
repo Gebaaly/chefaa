@@ -12,6 +12,7 @@ import vitamins from "../../assets/categories/vitamins&supplements.webp";
 import sexualWellness from "../../assets/categories/sexual wellness.webp";
 import offer from "../../assets/offer.webp"
 import ProductSite from "../../Components/website/ProductSite";
+import ProductCarousel from "../../Components/website/ProductsOfCategories";
 
 export default function HomePage() {
   ChangeTitle("Chefaa | order all your needs from the pharmacy online");
@@ -55,6 +56,7 @@ export default function HomePage() {
         <img src={offer} alt="offer" className="img-fluid w-100" />
       </div>
       {/* <ProductSite/> */}
+      <ProductCarousel/>
     </>
   );
 }

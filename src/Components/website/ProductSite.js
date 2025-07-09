@@ -13,18 +13,15 @@ export default function ProductSite() {
     const fetchData = async () => {
       setIsLoading(true);
       try {
-        const res = await Axios.get(`${PRO}?limit=${limit}&page=${page}`);
-        setProducts((prev) => [...prev, ...res.data.data]);
-        setTotalItems(res.data.total);
+        const res = await Axios.get(`${PRO}?category_id=7`);
+        console.log(res.data);
       } catch (err) {
         console.log(err);
-      } finally {
-        setIsLoading(false);
-      }
+      } 
     };
 
     fetchData();
-  }, [page]);
+  }, []);
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;

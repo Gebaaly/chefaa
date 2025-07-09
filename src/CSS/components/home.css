@@ -294,3 +294,48 @@ color: #ff8a00;
   display: block;
   
 }
+
+.custom-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.custom-arrow:hover {
+  opacity: 1;
+  background-color: white;
+}
+
+.custom-arrow.prev {
+  left: -20px;
+}
+
+.custom-arrow.next {
+  right: -20px;
+}
+
+.custom-arrow svg {
+  stroke: #888;
+  width: 20px;
+  height: 20px;
+}
+  .product-box {
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+}
+.product-box:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+

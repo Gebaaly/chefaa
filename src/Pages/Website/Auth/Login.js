@@ -8,9 +8,7 @@ import Loadingpage from "../../../Components/website/Loadingpage";
 import Cookie from "cookie-universal";
 import Navbar from "../../../Components/website/Navbar";
 import Footer from "../../../Components/website/Footer";
-import { useNavigate } from "react-router";
-import { Axios } from "../../../API/Axios";
-import Forbidden from "./403";
+
 
 export default function Login() {
   ChangeTitle("login");
@@ -50,7 +48,7 @@ export default function Login() {
       const res = await axios.post(`${baseURL}/${LOGIN}`, form);
       const token = res.data.token;
       
-      cookie.set("chefaa", token);
+      cookie.set("chefaa", token, res.data.user.name);
 
       if (res.status === 200 && res.data.user.role === "1995") {
         window.location.replace("/dashboard/users");

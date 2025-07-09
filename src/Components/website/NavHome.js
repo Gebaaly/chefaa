@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { Axios } from "../../API/Axios";
 import { CAT, USER } from "../../API/Api";
 import { handleLogout } from "../../Pages/Website/Auth/LogoutFunction";
+import Cookie from "cookie-universal";
 
 const MAIN_CATEGORIES = [
   "Medications",
@@ -24,15 +25,29 @@ export default function NavHome() {
   const [isCategoryOpen, setIsCategoryOpen] = useState(null);
   const [distributedCategories, setDistributedCategories] = useState([]);
   const [name, setName] = useState("");
-  
-  
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const cookie = Cookie();
   useEffect(() => {
-    async function fetchUser() {
-      const data = await Axios.get(`/${USER}`);
-      setName(data.data.name);
+    const token = cookie.get("chefaa");
+    const cachedName = cookie.get("chefaa_name");
+    if (token) {
+      setIsLoggedIn(true);
+      if (cachedName) setName(cachedName);
+
+      Axios.get(`/${USER}`)
+        .then((res) => {
+          setName(res.data.name);
+          cookie.set("chefaa_name", res.data.name); 
+        })
+        .catch(() => {
+          cookie.remove("chefaa");
+          cookie.remove("chefaa_name");
+          setIsLoggedIn(false);
+        });
     }
-    fetchUser();
   }, []);
+
 
   useEffect(() => {
     async function fetchCategories() {
@@ -122,7 +137,7 @@ export default function NavHome() {
 
           {/* Desktop Nav Items */}
           <div className="d-none d-lg-flex align-items-center gap-3 flex-nowrap ms-4">
-            {name ? (
+            {isLoggedIn ? (
               <>
                 {/* User Dropdown */}
                 <div
