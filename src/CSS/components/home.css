@@ -339,3 +339,20 @@ color: #ff8a00;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
+
+.badge-count {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background: red;
+  color: white;
+  border-radius: 6px;
+  font-size: 12px;
+  padding: 2px 6px;
+  min-width: 18px;
+  text-align: center;
+  line-height: 1;
+  z-index: 10;
+}
+
+

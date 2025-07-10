@@ -11,8 +11,8 @@ import healthCare from "../../assets/categories/health care devices.webp";
 import vitamins from "../../assets/categories/vitamins&supplements.webp";
 import sexualWellness from "../../assets/categories/sexual wellness.webp";
 import offer from "../../assets/offer.webp"
-import ProductSite from "../../Components/website/ProductSite";
-import ProductCarousel from "../../Components/website/ProductsOfCategories";
+import ProductCarousel from "../../Components/website/ProductCarousel";
+import Footer from "../../Components/website/Footer";
 
 export default function HomePage() {
   ChangeTitle("Chefaa | order all your needs from the pharmacy online");
@@ -57,6 +57,7 @@ export default function HomePage() {
       </div>
       {/* <ProductSite/> */}
       <ProductCarousel/>
+      <Footer/>
     </>
   );
 }

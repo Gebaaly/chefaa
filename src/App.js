@@ -14,11 +14,11 @@ import NotFound from "./Pages/Website/Auth/404";
 import Categories from "./Pages/Dashboard/Categories";
 import AddCategory from "./Pages/Dashboard/AddCategory";
 import Category from "./Pages/Dashboard/Category";
-import Test from "./Pages/Website/Auth/Test";
 import Products from "./Pages/Dashboard/Products";
 import AddProducts from "./Pages/Dashboard/AddProducts";
 import Product from "./Pages/Dashboard/Product";
-// import GoogleCallback from "./Pages/Website/Auth/GoogleCallback";
+import ProductsOfCat from "./Components/website/ProductsOfCat";
+import ProductPage from "./Components/website/ProductPage";
 
 export default function App() {
   return (
@@ -26,7 +26,8 @@ export default function App() {
       <Routes>
         {/* Public Routes */}
         <Route path="/" element={<HomePage />} />
-        <Route path="test" element={<Test />} />
+        <Route path="/categories/:slug" element={<ProductsOfCat />} />
+        <Route path="/products/:id" element={<ProductPage />} />
 
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />

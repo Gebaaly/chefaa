@@ -8,8 +8,10 @@ import Loadingpage from "../../../Components/website/Loadingpage";
 import Cookie from "cookie-universal";
 import Footer from "../../../Components/website/Footer";
 import Navbar from "../../../Components/website/Navbar";
+import { useNavigate } from "react-router-dom";
 export default function Register() {
   ChangeTitle("sign up");
+  const navigate = useNavigate();
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -40,7 +42,7 @@ export default function Register() {
       cookie.set("chefaa", token);
       setLoading(false);
 
-      window.location.assign("/");
+      navigate("/");
     } catch (err) {
       setLoading(false);
 

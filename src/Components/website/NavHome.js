@@ -1,4 +1,4 @@
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import logo from "../../assets/chefaa-en.webp";
 import "../../CSS/components/home.css";
 import { useEffect, useState } from "react";
@@ -46,7 +46,7 @@ export default function NavHome() {
           setIsLoggedIn(false);
         });
     }
-  }, []);
+  }, [cookie]);
 
 
   useEffect(() => {
@@ -76,6 +76,13 @@ export default function NavHome() {
   const toggleCategory = (categoryIndex) => {
     setIsCategoryOpen(isCategoryOpen === categoryIndex ? null : categoryIndex);
   };
+  function slugify(text) {
+    return decodeURIComponent(text)
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-") 
+      .replace(/^-+|-+$/g, "");
+  }
+  
 
   return (
     <>
@@ -260,31 +267,7 @@ export default function NavHome() {
               </button>
             </div>
 
-            {/* Wishlist */}
-            <div className="border-end pe-3">
-              <Link
-                to="/wishlist"
-                className="btn btn-link text-decoration-none text-dark fw-medium d-flex align-items-center gap-2 position-relative"
-              >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M20.84 4.61C20.3292 4.099 19.7228 3.69364 19.0554 3.41708C18.3879 3.14052 17.6725 2.99817 16.95 2.99817C16.2275 2.99817 15.5121 3.14052 14.8446 3.41708C14.1772 3.69364 13.5708 4.099 13.06 4.61L12 5.67L10.94 4.61C9.9083 3.5783 8.50903 2.9987 7.05 2.9987C5.59096 2.9987 4.19169 3.5783 3.16 4.61C2.1283 5.6417 1.5487 7.04097 1.5487 8.5C1.5487 9.95903 2.1283 11.3583 3.16 12.39L12 21.23L20.84 12.39C21.351 11.8792 21.7564 11.2728 22.0329 10.6054C22.3095 9.93789 22.4518 9.22249 22.4518 8.5C22.4518 7.77751 22.3095 7.0621 22.0329 6.39464C21.7564 5.72718 21.351 5.12075 20.84 4.61Z"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                <span className="d-none d-md-inline">Wishlist</span>
-              </Link>
-            </div>
-
+          
             {/* Cart */}
             <div>
               <Link
@@ -320,6 +303,8 @@ export default function NavHome() {
                     strokeLinejoin="round"
                   />
                 </svg>
+                <span className="badge-count">2</span> 
+
                 <span className="d-none d-md-inline">Cart</span>
               </Link>
             </div>
@@ -376,17 +361,15 @@ export default function NavHome() {
             <button className="btn btn-link text-decoration-none text-dark fw-medium text-start">
               العربية
             </button>
-            <Link
-              to="/wishlist"
-              className="btn btn-link text-decoration-none text-dark fw-medium d-flex align-items-center gap-2"
-            >
-              <span>Wishlist</span>
-            </Link>
+           
             <Link
               to="/cart"
               className="btn btn-link text-decoration-none text-dark fw-medium d-flex align-items-center gap-2"
-            >
+              >
               <span>Cart</span>
+              <span>(2)</span>
+            
+            
             </Link>
             {/* Mobile Categories */}
             <div className="mobile-categories mt-2">
@@ -428,7 +411,7 @@ export default function NavHome() {
                       distributedCategories[idx].map((subcat) => (
                         <Link
                           key={subcat.id}
-                          to={`/categories/${subcat.title}`}
+                          to={`/categories/${slugify(subcat.title)}`}
                           className="mobile-subcategory-item d-block py-1 text-decoration-none "
                         >
                           {subcat.title}
@@ -466,7 +449,7 @@ export default function NavHome() {
                         className="subcategory-item list-unstyled"
                       >
                         <Link
-                          to={`/categories/${subcat.title}`}
+                          to={`/categories/${slugify(subcat.title)}`}
                           className="subcategory-link text-decoration-none  d-block px-2 py-1"
                         >
                           {subcat.title}

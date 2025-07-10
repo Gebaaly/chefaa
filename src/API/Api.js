@@ -7,5 +7,6 @@ export const CAT = "categories";
 export const cat = "category";
 export const PRO = "products";
 export const pro = "product";
+export const FAV ="wishlist"
 export const LOGOUT = "logout";
 export const GOOGLE_CALLBACK = "auth/google/callback";  // This is the route that the user is redirected to after logging in with Google
