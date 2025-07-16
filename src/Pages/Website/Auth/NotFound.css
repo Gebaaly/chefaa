@@ -1,0 +1,15 @@
+.not-found-container {
+  height: 100vh;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  color: #343a40;
+}
+
+.not-found-container h1 {
+  font-size: 8rem;
+}
+
+.not-found-container a.btn {
+  padding: 0.6rem 1.5rem;
+  font-size: 1.1rem;
+  border-radius: 2rem;
+}
